@@ -75,7 +75,7 @@ void main() {
             widget.alignment == Alignment.center &&
             widget.child is Text,
       ),
-      findsNWidgets(3),
+      findsNWidgets(5),
     );
 
     expect(
@@ -85,7 +85,7 @@ void main() {
             widget.data != null &&
             widget.textAlign == TextAlign.center,
       ),
-      findsNWidgets(6),
+      findsNWidgets(8),
     );
 
     expect(
@@ -115,6 +115,16 @@ void main() {
             widget is ElevatedButton &&
             widget.onPressed is VoidCallback &&
             widget.child is Text,
+      ),
+      findsNWidgets(2),
+    );
+
+        expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is InkWell &&
+            widget.onTap is VoidCallback &&
+            widget.child is Container,
       ),
       findsNWidgets(2),
     );

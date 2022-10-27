@@ -1,5 +1,6 @@
+import 'package:context_ext/extensions/int_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:context_ext/context_extension.dart';
+import 'package:context_ext/extensions/context_extension.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -115,6 +116,37 @@ class _HomePageState extends State<HomePage> {
                   'theme\ncontext',
                   style: context.textTheme.headline5,
                   textAlign: TextAlign.center,
+                ),
+                Material(
+                  child: InkWell(
+                    onTap: () => Future.delayed(
+                      const Duration(milliseconds: 16),
+                      () => FocusScope.of(context)
+                          .requestFocus(specificFocusNode),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'duration',
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ),
+                Material(
+                  child: InkWell(
+                    onTap: () => Future.delayed(
+                      16.milliseconds,
+                      () => context.focusScope.requestFocus(specificFocusNode),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'extension',
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
