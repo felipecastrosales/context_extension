@@ -1,16 +1,159 @@
-# context_ext
+# Context Extension
 
-A new Flutter project.
+> ### Uma coleção de Context Extensions para o seu projeto.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Saiba mais
 
-A few resources to get you started if this is your first Flutter project:
+Leia esse artigo para conhecer mais a respeito dessa estratégia.    
+> ❓ Você já usou Context Extensions ou conhecia essa maneira de trabalhar com elas?
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tipos de Extensions 👇
+
+   <p>
+
+   - [MediaQuery](#mediaquery)
+   - [Navigator](#navigator)
+   - [Theme](#theme)
+   - [Scaffold](#scaffold)
+   - [Form](#form)
+   - [FocusScope](#focusscope)
+   - [ModalRoute](#modalroute)
+   - [Platform](#platform)
+
+   </p>
+
+---
+
+### MediaQuery:
+* `mediaQuerySize`
+* `mediaQueryPadding`
+* `mediaQueryViewPadding`
+* `mediaQueryViewInsets`
+* `platformBrightness`
+* `orientation`
+* `devicePixelRatio`
+* `textScaleFactor`
+* `mediaQueryShortestSide`
+* `mediaQueryLongestSide`
+* `height`
+* `width`
+* `topPadding`
+* `bottomPadding`
+* `statusBar`
+* `appBarHeight`
+* `bottomBarHeight`
+* `isLandscape`
+* `isPortrait`
+* `alwaysUse24HourFormat`
+* `isPhone`
+* `isSmallTablet`
+* `isLargeTablet`
+* `isTablet`
+
+### Navigator
+* `push`
+* `pop`
+* `pushNamed`
+* `canPop`
+* `popUntil`
+* `pushReplacementNamed`
+* `pushReplacement`
+* `pushAndRemoveUntil`
+* `pushNamedAndRemoveUntil`
+
+### Theme
+* `theme`
+* `textTheme`
+* `colorScheme`
+* `primaryColor`
+* `backgroundColor`
+* `scaffoldBackgroundColor`
+* `canvasColor`
+* `cardColor`
+* `dividerColor`
+* `focusColor`
+* `hoverColor`
+* `highlightColor`
+* `splashColor`
+* `selectedRowColor`
+* `unselectedWidgetColor`
+* `disabledColor`
+* `toggleableActiveColor`
+* `secondaryHeaderColor`
+* `dialogBackgroundColor`
+* `indicatorColor`
+* `hintColor`
+* `errorColor`
+* `secondaryColor`
+* `primaryTextTheme`
+* `bottomAppBarTheme`
+* `bottomSheetTheme`
+* `appBarTheme`
+* `headline1`
+* `headline2`
+* `headline3`
+* `headline4`
+* `headline5`
+* `headline6`
+* `subtitle1`
+* `subtitle2`
+* `bodyText1`
+* `bodyText2`
+* `caption`
+* `button`
+* `overline`
+
+### Scaffold
+* `showSnackBar`
+* `removeCurrentSnackBar`
+* `hideCurrentSnackBar`
+* `openDrawer`
+* `openEndDrawer`
+* `closeDrawer`
+* `closeEndDrawer`
+* `closeDrawerOrEndDrawer`
+* `showBottomSheet`
+
+### Form
+* `validate`
+* `reset`
+* `save`
+* `form`
+
+### FocusScope
+* `focusScope`
+* `hasFocus`
+* `isFirstFocus`
+* `hasPrimaryFocus`
+* `canRequestFocus`
+* `consumeKeyboardToken`
+* `nextFocus`
+* `requestFocus`
+* `previousFocus`
+* `unfocus`
+* `setFirstFocus`
+* `closeKeyboard`
+
+### ModalRoute
+* `modalRoute`
+* `routeSettings`
+* `canPop`
+* `isActive`
+* `isCurrent`
+
+### Platform
+* `platform`
+* `isAndroid`
+* `isIOS`
+* `isFuchsia`
+* `isLinux`
+* `isMacOS`
+* `isWindows`
+
+---
+
+> ### Esse repositório te ajudou de alguma forma?<br>Dê uma ⭐.
