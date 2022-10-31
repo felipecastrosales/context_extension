@@ -7,7 +7,7 @@
 ## Saiba mais
 
 Leia esse artigo para conhecer mais a respeito dessa estratégia.    
-> ❓ Você já usou Context Extensions ou conhecia essa maneira de trabalhar com elas?
+> [❓ Você já usou Context Extensions ou conhecia essa maneira de trabalhar com elas?](https://medium.com/suamusicatech/context-extension-4cf4512d3db0)
 
 ---
 
