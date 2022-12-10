@@ -47,6 +47,8 @@ extension NavigatorExt on BuildContext {
           String newRouteName, RoutePredicate predicate, {Object? arguments}) =>
       Navigator.pushNamedAndRemoveUntil<T>(this, newRouteName, predicate,
           arguments: arguments);
+  void popAndPushNamed<T extends Object?, TO extends Object?>(
+       String newRoute, [TO? result]) => Navigator.popAndPushNamed(this, newRoute, result: result);          
 }
 
 extension ThemeExt on BuildContext {
