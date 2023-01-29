@@ -47,8 +47,9 @@ extension NavigatorExt on BuildContext {
           String newRouteName, RoutePredicate predicate, {Object? arguments}) =>
       Navigator.pushNamedAndRemoveUntil<T>(this, newRouteName, predicate,
           arguments: arguments);
-  void popAndPushNamed<T extends Object?, TO extends Object?>(
-       String newRoute, [TO? result]) => Navigator.popAndPushNamed(this, newRoute, result: result);          
+  void popAndPushNamed<T extends Object?, TO extends Object?>(String newRoute,
+          [TO? result]) =>
+      Navigator.popAndPushNamed(this, newRoute, result: result);
 }
 
 extension ThemeExt on BuildContext {
@@ -56,7 +57,7 @@ extension ThemeExt on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
   Color get primaryColor => Theme.of(this).primaryColor;
-  Color get backgroundColor => Theme.of(this).backgroundColor;
+  Color get backgroundColor => Theme.of(this).colorScheme.background;
   Color get scaffoldBackgroundColor => Theme.of(this).scaffoldBackgroundColor;
   Color get canvasColor => Theme.of(this).canvasColor;
   Color get cardColor => Theme.of(this).cardColor;
@@ -65,33 +66,31 @@ extension ThemeExt on BuildContext {
   Color get hoverColor => Theme.of(this).hoverColor;
   Color get highlightColor => Theme.of(this).highlightColor;
   Color get splashColor => Theme.of(this).splashColor;
-  Color get selectedRowColor => Theme.of(this).selectedRowColor;
   Color get unselectedWidgetColor => Theme.of(this).unselectedWidgetColor;
   Color get disabledColor => Theme.of(this).disabledColor;
-  Color get toggleableActiveColor => Theme.of(this).toggleableActiveColor;
   Color get secondaryHeaderColor => Theme.of(this).secondaryHeaderColor;
   Color get dialogBackgroundColor => Theme.of(this).dialogBackgroundColor;
   Color get indicatorColor => Theme.of(this).indicatorColor;
   Color get hintColor => Theme.of(this).hintColor;
-  Color get errorColor => Theme.of(this).errorColor;
+  Color get errorColor => Theme.of(this).colorScheme.error;
   Color get secondaryColor => Theme.of(this).secondaryHeaderColor;
   TextTheme get primaryTextTheme => Theme.of(this).primaryTextTheme;
   BottomAppBarTheme get bottomAppBarTheme => Theme.of(this).bottomAppBarTheme;
   BottomSheetThemeData get bottomSheetTheme => Theme.of(this).bottomSheetTheme;
   AppBarTheme get appBarTheme => Theme.of(this).appBarTheme;
-  TextStyle? get headline1 => textTheme.headline1;
-  TextStyle? get headline2 => textTheme.headline2;
-  TextStyle? get headline3 => textTheme.headline3;
-  TextStyle? get headline4 => textTheme.headline4;
-  TextStyle? get headline5 => textTheme.headline5;
-  TextStyle? get headline6 => textTheme.headline6;
-  TextStyle? get subtitle1 => textTheme.subtitle1;
-  TextStyle? get subtitle2 => textTheme.subtitle2;
-  TextStyle? get bodyText1 => textTheme.bodyText1;
-  TextStyle? get bodyText2 => textTheme.bodyText2;
-  TextStyle? get caption => textTheme.caption;
-  TextStyle? get button => textTheme.button;
-  TextStyle? get overline => textTheme.overline;
+  TextStyle? get headline1 => textTheme.displayLarge;
+  TextStyle? get headline2 => textTheme.displayMedium;
+  TextStyle? get headline3 => textTheme.displaySmall;
+  TextStyle? get headline4 => textTheme.headlineMedium;
+  TextStyle? get headline5 => textTheme.headlineSmall;
+  TextStyle? get headline6 => textTheme.titleLarge;
+  TextStyle? get subtitle1 => textTheme.titleMedium;
+  TextStyle? get subtitle2 => textTheme.titleSmall;
+  TextStyle? get bodyText1 => textTheme.bodyLarge;
+  TextStyle? get bodyText2 => textTheme.bodyMedium;
+  TextStyle? get caption => textTheme.bodySmall;
+  TextStyle? get button => textTheme.labelLarge;
+  TextStyle? get overline => textTheme.labelSmall;
 }
 
 extension ScaffoldExt on BuildContext {
@@ -133,9 +132,9 @@ extension ScaffoldExt on BuildContext {
 class FormContext {
   FormContext(this._context);
   final BuildContext _context;
-  bool validate() => Form.of(_context)?.validate() ?? false;
-  void reset() => Form.of(_context)?.reset();
-  void save() => Form.of(_context)?.save();
+  bool validate() => Form.of(_context).validate();
+  void reset() => Form.of(_context).reset();
+  void save() => Form.of(_context).save();
 }
 
 extension FormExt on BuildContext {
