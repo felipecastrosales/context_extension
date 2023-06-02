@@ -68,10 +68,8 @@ extension ThemeExt on BuildContext {
   Color get hoverColor => Theme.of(this).hoverColor;
   Color get highlightColor => Theme.of(this).highlightColor;
   Color get splashColor => Theme.of(this).splashColor;
-  //Color get selectedRowColor => Theme.of(this).selectedRowColor; -- Deprecaded
   Color get unselectedWidgetColor => Theme.of(this).unselectedWidgetColor;
   Color get disabledColor => Theme.of(this).disabledColor;
-  //Color get toggleableActiveColor => Theme.of(this).toggleableActiveColor; -- Deprecaded
   Color get secondaryHeaderColor => Theme.of(this).secondaryHeaderColor;
   Color get dialogBackgroundColor => Theme.of(this).dialogBackgroundColor;
   Color get indicatorColor => Theme.of(this).indicatorColor;
