@@ -109,12 +109,12 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Text(
                   'Theme\n.of(context)',
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headlineSmall,
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   'theme\ncontext',
-                  style: context.textTheme.headline5,
+                  style: context.textTheme.headlineSmall,
                   textAlign: TextAlign.center,
                 ),
                 Material(
