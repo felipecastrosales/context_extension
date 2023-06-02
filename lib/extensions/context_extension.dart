@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
 extension MediaQueryExt on BuildContext {
-  Size get mediaQuerySize => MediaQuery.of(this).size;
-  EdgeInsets get mediaQueryPadding => MediaQuery.of(this).padding;
-  EdgeInsets get mediaQueryViewPadding => MediaQuery.of(this).viewPadding;
-  EdgeInsets get mediaQueryViewInsets => MediaQuery.of(this).viewInsets;
-  Brightness get platformBrightness => MediaQuery.of(this).platformBrightness;
-  Orientation get orientation => MediaQuery.of(this).orientation;
-  double get devicePixelRatio => MediaQuery.of(this).devicePixelRatio;
-  double get textScaleFactor => MediaQuery.of(this).textScaleFactor;
+  Size get mediaQuerySize => MediaQuery.sizeOf(this);
+  EdgeInsets get mediaQueryPadding => MediaQuery.paddingOf(this);
+  EdgeInsets get mediaQueryViewPadding => MediaQuery.viewPaddingOf(this);
+  EdgeInsets get mediaQueryViewInsets => MediaQuery.viewInsetsOf(this);
+  Brightness get platformBrightness => MediaQuery.platformBrightnessOf(this);
+  Orientation get orientation => MediaQuery.orientationOf(this);
+  double get devicePixelRatio => MediaQuery.devicePixelRatioOf(this);
+  double get textScaleFactor => MediaQuery.textScaleFactorOf(this);
   double get mediaQueryShortestSide => mediaQuerySize.shortestSide;
   double get mediaQueryLongestSide => mediaQuerySize.longestSide;
-  double get height => MediaQuery.of(this).size.height;
-  double get width => MediaQuery.of(this).size.width;
-  double get topPadding => MediaQuery.of(this).padding.top;
-  double get bottomPadding => MediaQuery.of(this).padding.bottom;
-  double get statusBar => MediaQuery.of(this).viewPadding.top;
+  double get height => mediaQuerySize.height;
+  double get width => mediaQuerySize.width;
+  double get topPadding => mediaQueryPadding.top;
+  double get bottomPadding => mediaQueryPadding.bottom;
+  double get statusBar => mediaQueryViewPadding.top;
   double get appBarHeight => kToolbarHeight;
   double get bottomBarHeight => kBottomNavigationBarHeight;
   bool get isLandscape => orientation == Orientation.landscape;
   bool get isPortrait => orientation == Orientation.portrait;
-  bool get alwaysUse24HourFormat => MediaQuery.of(this).alwaysUse24HourFormat;
+  bool get alwaysUse24HourFormat => MediaQuery.alwaysUse24HourFormatOf(this);
   bool get isPhone => (mediaQueryShortestSide < 600);
   bool get isSmallTablet => (mediaQueryShortestSide >= 600);
   bool get isLargeTablet => (mediaQueryShortestSide >= 720);
@@ -68,10 +68,10 @@ extension ThemeExt on BuildContext {
   Color get hoverColor => Theme.of(this).hoverColor;
   Color get highlightColor => Theme.of(this).highlightColor;
   Color get splashColor => Theme.of(this).splashColor;
-  Color get selectedRowColor => Theme.of(this).selectedRowColor;
+  //Color get selectedRowColor => Theme.of(this).selectedRowColor; -- Deprecaded
   Color get unselectedWidgetColor => Theme.of(this).unselectedWidgetColor;
   Color get disabledColor => Theme.of(this).disabledColor;
-  Color get toggleableActiveColor => Theme.of(this).toggleableActiveColor;
+  //Color get toggleableActiveColor => Theme.of(this).toggleableActiveColor; -- Deprecaded
   Color get secondaryHeaderColor => Theme.of(this).secondaryHeaderColor;
   Color get dialogBackgroundColor => Theme.of(this).dialogBackgroundColor;
   Color get indicatorColor => Theme.of(this).indicatorColor;
@@ -136,9 +136,9 @@ extension ScaffoldExt on BuildContext {
 class FormContext {
   FormContext(this._context);
   final BuildContext _context;
-  bool validate() => Form.of(_context)?.validate() ?? false;
-  void reset() => Form.of(_context)?.reset();
-  void save() => Form.of(_context)?.save();
+  bool validate() => Form.of(_context).validate() ?? false;
+  void reset() => Form.of(_context).reset();
+  void save() => Form.of(_context).save();
 }
 
 extension FormExt on BuildContext {
