@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var args1 = ModalRoute.of(context)?.settings.arguments;
     var args2 = context.routeSettings?.arguments;
-    var size = MediaQuery.of(context).size;
+    var size = MediaQuery.sizeOf(context);
 
     debugPrint('args1: $args1');
     debugPrint('args2: $args2');
@@ -50,8 +50,8 @@ class _HomePageState extends State<HomePage> {
               ),
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
+                  width: size.width,
+                  height: size.height,
                   color: Colors.red,
                   alignment: Alignment.center,
                   child: const Text('mediaquery'),
