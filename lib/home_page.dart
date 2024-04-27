@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var specificFocusNode = FocusNode();
+  late FocusNode specificFocusNode;
 
   @override
   void initState() {
@@ -39,145 +39,148 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       drawer: const Drawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            GridView(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
+      body: Builder(
+        builder: (context) => SingleChildScrollView(
+          child: Column(
+            children: [
+              GridView(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                ),
+                children: [
+                  Container(
+                    width: size.width,
+                    height: size.height,
+                    color: Colors.red,
+                    alignment: Alignment.center,
+                    child: const Text('mediaquery'),
+                  ),
+                  Container(
+                    width: size.width,
+                    height: size.height,
+                    color: Colors.yellow,
+                    alignment: Alignment.center,
+                    child: const Text('size'),
+                  ),
+                  Container(
+                    width: context.width,
+                    height: context.height,
+                    color: Colors.green,
+                    alignment: Alignment.center,
+                    child: const Text('context'),
+                  ),
+                ],
               ),
-              children: [
-                Container(
-                  width: size.width,
-                  height: size.height,
-                  color: Colors.red,
-                  alignment: Alignment.center,
-                  child: const Text('mediaquery'),
+              GridView(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
                 ),
-                Container(
-                  width: size.width,
-                  height: size.height,
-                  color: Colors.yellow,
-                  alignment: Alignment.center,
-                  child: const Text('size'),
-                ),
-                Container(
-                  width: context.width,
-                  height: context.height,
-                  color: Colors.green,
-                  alignment: Alignment.center,
-                  child: const Text('context'),
-                ),
-              ],
-            ),
-            GridView(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-              ),
-              children: [
-                TextButton(
-                  onPressed: () => Navigator.of(context).pushNamed('/'),
-                  child: const Text(
-                    'navigator\n.of(context)',
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () => context.pushNamed('/'),
-                  child: const Text(
-                    'navigator\ncontext',
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () => Scaffold.of(context).openDrawer(),
-                  child: const Text(
-                    'drawer\nscaffold',
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () => context.openDrawer(),
-                  child: const Text(
-                    'drawer\ncontext',
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Text(
-                  'Theme\n.of(context)',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  'theme\ncontext',
-                  style: context.textTheme.headlineSmall,
-                  textAlign: TextAlign.center,
-                ),
-                Material(
-                  child: InkWell(
-                    onTap: () => Future.delayed(
-                      const Duration(milliseconds: 16),
-                      () => FocusScope.of(context)
-                          .requestFocus(specificFocusNode),
+                children: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pushNamed('/'),
+                    child: const Text(
+                      'navigator\n.of(context)',
+                      textAlign: TextAlign.center,
                     ),
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'duration',
-                        textAlign: TextAlign.center,
+                  ),
+                  TextButton(
+                    onPressed: () => context.pushNamed('/'),
+                    child: const Text(
+                      'navigator\ncontext',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => Scaffold.of(context).openDrawer(),
+                    child: const Text(
+                      'drawer\nscaffold',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => context.openDrawer(),
+                    child: const Text(
+                      'drawer\ncontext',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Text(
+                    'Theme\n.of(context)',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    'theme\ncontext',
+                    style: context.textTheme.headlineSmall,
+                    textAlign: TextAlign.center,
+                  ),
+                  Material(
+                    child: InkWell(
+                      onTap: () => Future.delayed(
+                        const Duration(milliseconds: 16),
+                        () => FocusScope.of(context)
+                            .requestFocus(specificFocusNode),
+                      ),
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'duration',
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Material(
-                  child: InkWell(
-                    onTap: () => Future.delayed(
-                      16.milliseconds,
-                      () => context.focusScope.requestFocus(specificFocusNode),
-                    ),
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'extension',
-                        textAlign: TextAlign.center,
+                  Material(
+                    child: InkWell(
+                      onTap: () => Future.delayed(
+                        16.milliseconds,
+                        () =>
+                            context.focusScope.requestFocus(specificFocusNode),
+                      ),
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'extension',
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                TextField(
-                  autofocus: true,
-                  focusNode: specificFocusNode,
-                  decoration: const InputDecoration(
-                    labelText: 'focus',
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TextField(
+                    autofocus: true,
+                    focusNode: specificFocusNode,
+                    decoration: const InputDecoration(
+                      labelText: 'focus',
+                    ),
                   ),
-                ),
-                const SizedBox(height: 8),
-                ElevatedButton(
-                  onPressed: () {
-                    FocusScope.of(context).requestFocus(specificFocusNode);
-                  },
-                  child: const Text('FocusScope - Focus'),
-                ),
-                const SizedBox(height: 8),
-                ElevatedButton(
-                  onPressed: () {
-                    context.focusScope.requestFocus(specificFocusNode);
-                  },
-                  child: const Text('context - Focus'),
-                ),
-              ],
-            ),
-          ],
+                  const SizedBox(height: 8),
+                  ElevatedButton(
+                    onPressed: () {
+                      FocusScope.of(context).requestFocus(specificFocusNode);
+                    },
+                    child: const Text('FocusScope - Focus'),
+                  ),
+                  const SizedBox(height: 8),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.focusScope.requestFocus(specificFocusNode);
+                    },
+                    child: const Text('context - Focus'),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
